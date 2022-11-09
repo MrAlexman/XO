@@ -41,7 +41,7 @@ while num_turn <= 8:
         print("Ввод числа от 1 до 9.")
         try:
             turn = int(input(f"Введите номер ячейки. Ход {who}: "))
-        except:
+        except ValueError:
             turn = None
         if turn not in turns:
             turns.add(turn)
