@@ -12,7 +12,7 @@ def your_turn(cell_num):
 
 def winner(cell_num, who):
     poser = []
-    win = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9]]
+    win = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9], [7, 5, 3], [1, 5, 9]]
     for k, v in enumerate(cell_num):
         if v == who:
             poser.append(k)
@@ -25,34 +25,41 @@ def winner(cell_num, who):
         if counter == 3:
             return True
     return False
-
-
-num_turn = 0
-cell = [0, '*', '*', '*', '*', '*', '*', '*', '*', '*']
-turns = set()
-print(your_turn(cell))
-while num_turn <= 8:
-    turn = None
-    if num_turn % 2 == 0:
-        who = 'X'
-    else:
-        who = 'O'
-    while turn not in [1, 2, 3, 4, 5, 6, 7, 8, 9]:
-        print("Ввод числа от 1 до 9.")
-        try:
-            turn = int(input(f"Введите номер ячейки. Ход {who}: "))
-        except ValueError:
+yn = None
+if __name__ == '__main__':
+    while True:
+        num_turn = 0
+        cell = [0, '*', '*', '*', '*', '*', '*', '*', '*', '*']
+        turns = set()
+        print(your_turn(cell))
+        while num_turn <= 8:
             turn = None
-        if turn not in turns:
-            turns.add(turn)
-        else:
-            print("Не жульничай!")
-            turn = None
-    cell[turn] = who
-    print(your_turn(cell))
-    if winner(cell, who):
-        print(f"Побеза за {who}!")
-        break
-    num_turn += 1
-if num_turn == 9:
-    print("Ничья!")
+            if num_turn % 2 == 0:
+                who = 'X'
+            else:
+                who = 'O'
+            while turn not in [1, 2, 3, 4, 5, 6, 7, 8, 9]:
+                print("Ввод числа от 1 до 9.")
+                try:
+                    turn = int(input(f"Введите номер ячейки. Ход {who}: "))
+                except ValueError:
+                    turn = None
+                if turn not in turns:
+                    turns.add(turn)
+                else:
+                    print("Не жульничай!")
+                    turn = None
+            cell[turn] = who
+            print(your_turn(cell))
+            if winner(cell, who):
+                print(f"Побеза за {who}!")
+                break
+            num_turn += 1
+        if num_turn == 9:
+            print("Ничья!")
+        print("Еще партию?")
+        while yn not in ['y', 'n']:
+            yn = None
+            yn = input("Введите: (y/n)")
+        if yn == 'n':
+            break
