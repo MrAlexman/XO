@@ -54,3 +54,5 @@ while num_turn <= 8:
         print(f"Побеза за {who}!")
         break
     num_turn += 1
+if num_turn == 9:
+    print("Ничья!")
