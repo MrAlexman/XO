@@ -28,7 +28,7 @@ def winner(cell_num, who):
 
 
 num_turn = 0
-cell = [0, '_', '_', '_', '_', '_', '_', '_', '_', '_']
+cell = [0, '*', '*', '*', '*', '*', '*', '*', '*', '*']
 turns = set()
 print(your_turn(cell))
 while num_turn <= 8:
