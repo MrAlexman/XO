@@ -40,28 +40,28 @@ if __name__ == '__main__':
             else:
                 who = 'O'
             while turn not in [1, 2, 3, 4, 5, 6, 7, 8, 9]:
-                print("Ввод числа от 1 до 9.")
+                print("Enter a number from 1 to 9.")
                 try:
-                    turn = int(input(f"Введите номер ячейки. Ход '{who}': "))
+                    turn = int(input(f"Enter a number of cell. Turn '{who}': "))
                 except ValueError:
                     turn = None
                 if turn not in turns:
                     turns.add(turn)
                 else:
-                    print("Не жульничай!")
+                    print("Don`t cheat!")
                     turn = None
             print('\n'*100)
             cell[turn] = who
             print(your_turn(cell))
             if winner(cell, who):
-                print(f"Побеза за {who}!")
+                print(f"{who} wins!")
                 break
             num_turn += 1
 
         if num_turn == 9:
-            print("Ничья!")
-        print("Еще партию?")
+            print("Draw!")
+        print("Play again?")
         while yn not in ['y', 'n']:
-            yn = input("Введите: (y/n)")
+            yn = input("Enter: (y/n): ")
         if yn == 'n':
             break
