@@ -1,3 +1,5 @@
+print("Hello, gamers! Choose who`s 'X' and who`s 'O'\n")
+
 def your_turn(cell_num):
     file = open("XO.txt", "r")
     maket = ''.join(file.readlines())
