@@ -1,3 +1,3 @@
 # XO
 
-qwerty123
+Game "XO 3x3" for 2 players
