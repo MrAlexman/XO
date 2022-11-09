@@ -1,5 +1,3 @@
-print("Hello, gamers! Choose who`s 'X' and who`s 'O'\n")
-
 def your_turn(cell_num):
     file = open("XO.txt", "r")
     maket = ''.join(file.readlines())
@@ -25,6 +23,9 @@ def winner(cell_num, who):
         if counter == 3:
             return True
     return False
+
+
+print("Hello, gamers! Choose who`s 'X' and who`s 'O'\n")
 yn = None
 if __name__ == '__main__':
     while True:
@@ -41,7 +42,7 @@ if __name__ == '__main__':
             while turn not in [1, 2, 3, 4, 5, 6, 7, 8, 9]:
                 print("Ввод числа от 1 до 9.")
                 try:
-                    turn = int(input(f"Введите номер ячейки. Ход {who}: "))
+                    turn = int(input(f"Введите номер ячейки. Ход '{who}': "))
                 except ValueError:
                     turn = None
                 if turn not in turns:
@@ -49,12 +50,14 @@ if __name__ == '__main__':
                 else:
                     print("Не жульничай!")
                     turn = None
+            print('\n'*100)
             cell[turn] = who
             print(your_turn(cell))
             if winner(cell, who):
                 print(f"Побеза за {who}!")
                 break
             num_turn += 1
+
         if num_turn == 9:
             print("Ничья!")
         print("Еще партию?")
