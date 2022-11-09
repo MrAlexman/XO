@@ -62,7 +62,6 @@ if __name__ == '__main__':
             print("Ничья!")
         print("Еще партию?")
         while yn not in ['y', 'n']:
-            yn = None
             yn = input("Введите: (y/n)")
         if yn == 'n':
             break
